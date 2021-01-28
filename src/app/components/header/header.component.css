@@ -1,0 +1,11 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+.title{
+    padding-left: 1%;
+}
+
+.tool-bar{
+    background-color:#edf8f8;   
+}
