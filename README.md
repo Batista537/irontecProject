@@ -9,5 +9,6 @@
 First of all we need have installed the next packages:
 
 - NodeJs
-- Npm
+    - Npm
+- Git Bash if you are working on windows or just git if you are on Unix
 
