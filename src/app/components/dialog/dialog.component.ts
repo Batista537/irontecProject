@@ -13,6 +13,10 @@ export class DialogComponent {
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
+  /**
+   * It fires when the button close is pressed
+   * @returns void
+   */
   onExitClick(): void {
     this.dialogRef.close();
   }

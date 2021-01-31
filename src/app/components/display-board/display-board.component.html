@@ -24,11 +24,11 @@
     <div class="issues-status " >
         <div class="issues-status-open">
             <mat-icon svgIcon="status" *ngIf="true"></mat-icon>
-            <p class="number-issues" style="padding-left: 10px;">{{openIssues}} Abierta</p>
+            <p class="number-issues" style="padding: 2px 10px;">{{openIssues}} Abierta</p>
         </div>
         <div class="issues-status-close">
             <mat-icon svgIcon="statusClose"  *ngIf="true"></mat-icon>
-            <p class="number-issues" style="padding-left: 10px;">{{closeIssues}} Cerrada</p>
+            <p class="number-issues" style="padding: 2px 10px;">{{closeIssues}} Cerrada</p>
         </div>
     </div>
 
@@ -61,8 +61,7 @@
                     (click)="openDialog(issue.body)">
                     {{issue.title}}</td>
                 </ng-container>
-
-                <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns;" class="table-header"></tr> -->
+                
                 <tr mat-row *matRowDef="let issue; columns: displayedColumns;"></tr>
             </table>
             <mat-paginator  [length] ="resultsLength"

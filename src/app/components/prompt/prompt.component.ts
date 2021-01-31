@@ -14,14 +14,25 @@ export class PromptComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
-  }
-  public installPwa(): void {
-    this.data.promptEvent.prompt();
-    this.close();
   }
 
-  public close() {
+  /**
+   * Fires a prompt when the user click on install.
+   * @returns void
+   */
+  public installPwa(): void {
+    try {
+      this.data.promptEvent.prompt();
+      this.close();
+    } catch (error) {
+      console.error("installPwa ERROR. " + error);
+    }
+  }
+
+  /**
+   * Close the prompt.
+   */
+  public close(): void {
     this.bottomSheetRef.dismiss();
   }
 

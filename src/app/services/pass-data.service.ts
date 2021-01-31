@@ -12,6 +12,10 @@ ngOnInit(): void {
   this.body=""
 }
 
+  /**
+   * Store a message to display on the UI.
+   * @param message 
+   */
   public setBodyMessage(message : string):void{
     try{
       this.body = message;
@@ -20,6 +24,10 @@ ngOnInit(): void {
     }
   }
 
+  /**
+   * Get a message that was stored before.
+   * @returns string
+   */
   public getBodyMessage():string{
     return this.body;
   }

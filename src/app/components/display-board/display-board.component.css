@@ -1,7 +1,7 @@
+/* @import '@angular/material/prebuilt-themes/pink-bluegrey.css'; */
 .form-field {
     width: 30%;
     padding: 2% 2%;
-    color: cornflowerblue;
 }
 mat-icon, .mat-icon{
   cursor: pointer;
@@ -22,7 +22,7 @@ mat-icon, .mat-icon{
   color: green;
 }
 .issues-status-open, .issues-status-close{
-  padding: 1% 0% 0% 24px;
+  padding: 8px 0% 0% 24px;
   display: inline-flex;
 }
 .display-table-container{
@@ -66,8 +66,7 @@ mat-icon, .mat-icon{
   }
   .form-field {
     width: 90%;
-    /* padding: 2% 2%; */
-}
+  }
 }
 
  

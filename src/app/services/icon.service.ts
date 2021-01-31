@@ -12,13 +12,32 @@ export class IconService {
     private domSanitizer: DomSanitizer
     ) { }
 
+
+    /**
+     * Register the stored icons when this function is called.
+     */
     public registerIcons(): void {
-      this.loadIcons(Object.values(Icons), '../assets/svg/icons');
+      try {
+        this.loadIcons(Object.values(Icons), '../assets/svg/icons');
+      } catch (error) {
+        console.error("loadIcons ERROR. " + error);
+      }
     }
 
+    /**
+     * Receive an iconKey value, and an iconUrl and register
+     * them into the app to use in the location where are called.
+     * @param iconKeys 
+     * @param iconUrl 
+     * @returns void
+     */
     private loadIcons(iconKeys: string[], iconUrl: string): void{
-      iconKeys.forEach( key => {
-        this.matIconRegistry.addSvgIcon(key, this.domSanitizer.bypassSecurityTrustResourceUrl(`${iconUrl}/${key}.svg`));
-      })
+      try {
+        iconKeys.forEach( key => {
+          this.matIconRegistry.addSvgIcon(key, this.domSanitizer.bypassSecurityTrustResourceUrl(`${iconUrl}/${key}.svg`));
+        })
+      } catch (error) {
+        console.error("loadIcons ERROR. " + error);
+      }
     }
 }
