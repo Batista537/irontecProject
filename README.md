@@ -9,7 +9,7 @@
     - If you are working on linux:  
         - sudo apt install nodejs (This install the latest stable version)
 
-- Npm (Commes with Node.js installation is the package manager)
+- Npm (Commes with Node.js installation, is the package manager)
 
 - Git Bash if you are working on windows or just git if you are on Unix.
 
@@ -26,9 +26,9 @@
 - ng build --prod
 
 ### Serve the project
-- Here you have two options
-    1. Configure/Use a development server with Apache2 or Nginx and set into the wwww folder the content of 'irontec-angular-project' created under the dists/ folder.
-    2. Use the http-server package installed before with npm
+- Here you have two options:
+    1. Configure/Use a development server with Apache2 or Nginx and set into the www folder, the content of 'irontec-angular-project' created under the dists/ folder.
+    2. Use the http-server package installed before with npm:
         - http-server /dists/irontec-angular-project 8080
             - Connect to localhost:8080
 
