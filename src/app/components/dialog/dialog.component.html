@@ -1,0 +1,15 @@
+<div class="dialog-exit-btn">
+    <button mat-button (click)="onExitClick()">X</button>
+</div>
+<div class="dialog" >
+    <div class="dialog-body">
+        <h1 mat-dialog-title>Descripcion</h1>
+        <div mat-dialog-content *ngIf="data.body!=''">
+            <p>{{data.body}}</p>
+        </div>
+        <div mat-dialog-content style="display: inline-flex;" *ngIf="data.body ==''">
+            <mat-icon svgIcon="status" style="color: red;"></mat-icon>
+            <p style="padding-left: 8px; margin-top: 2px;">Esta Issue no tiene cuerpo de mensaje</p>
+        </div>
+    </div>
+</div>

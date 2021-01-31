@@ -9,3 +9,7 @@
 .tool-bar{
     background-color:#edf8f8;   
 }
+
+.network-off, .network-on{
+    display: inline-flex;
+}

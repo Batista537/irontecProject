@@ -3,14 +3,14 @@
         <mat-label>Insertar el propietario del repositorio de GitHub</mat-label>
         <input matInput type="text" [(ngModel)]="owner">
         <button mat-button *ngIf="owner" matSuffix mat-icon-button aria-label="Clear" (click)="owner=''">
-            <mat-icon>close</mat-icon>
+            <mat-icon svgIcon="close"></mat-icon>
         </button>
     </mat-form-field>
     <mat-form-field class="form-field">
         <mat-label>Insertar repositorio de GitHub</mat-label>
         <input matInput type="text" [(ngModel)]="repository">
         <button mat-button *ngIf="repository" matSuffix mat-icon-button aria-label="Clear" (click)="repository='' ">
-            <mat-icon>close</mat-icon>
+            <mat-icon svgIcon="close"></mat-icon>
         </button>
     </mat-form-field>
     <button mat-button 
@@ -20,35 +20,58 @@
     </button>
 </div>
 
-<div class="example-container mat-elevation-z8">
-    <div class="example-loading-shade"
-         *ngIf="isLoadingResults || isRateLimitReached">
-      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-      <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-        GitHub's API rate limit has been reached. It will be reset in one minute.
-      </div>
+<div class="display-table-container mat-elevation-z8">
+    <div class="issues-status " >
+        <div class="issues-status-open">
+            <mat-icon svgIcon="status" *ngIf="true"></mat-icon>
+            <p class="number-issues" style="padding-left: 10px;">{{openIssues}} Abierta</p>
+        </div>
+        <div class="issues-status-close">
+            <mat-icon svgIcon="statusClose"  *ngIf="true"></mat-icon>
+            <p class="number-issues" style="padding-left: 10px;">{{closeIssues}} Cerrada</p>
+        </div>
     </div>
-  
-    <div class="example-table-container">
-      <table mat-table [dataSource]="dataSource" class="example-table"
-             matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
-        <!-- Number Column -->
-        <ng-container matColumnDef="state">
-          <th mat-header-cell *matHeaderCellDef>State</th>
-          <td mat-cell *matCellDef="let issue">{{issue.state}}</td>
-        </ng-container>
-  
-        <!-- Title Column -->
-        <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef>Title</th>
-          <td mat-cell *matCellDef="let issue">{{issue.title}}</td>
-        </ng-container>
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let issue; columns: displayedColumns;"></tr>
-      </table>
+
+    <div class="container" >
+        <div class="no-result" *ngIf="resultsLength==0">
+            <mat-icon svgIcon="status" style="cursor: auto; color: gray;" class="noResults-icon"></mat-icon>
+            <h2 style="font-size: x-large;">Ningún resultado coincide con su búsqueda.</h2>
+            <p style="color:grey; font-size: 16px;">Podrías buscar todo de <a href="https://github.com/search">GitHub</a> o intentar una <a href="https://github.com/search/advanced">busqueda avanzada.</a></p>
+        </div>
+
+        <div class="table-container" *ngIf="resultsLength>0">
+            <table mat-table [dataSource]="pageSlice" class="example-table" 
+                    matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+                <!-- State Column -->
+                <ng-container matColumnDef="state" >
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let issue">
+                    <mat-icon   class="icon-status-open" svgIcon="status" *ngIf="issue.state=='open'"
+                                matTooltip="Open issue"
+                                matTooltipPosition="right">
+                    </mat-icon>
+                    <mat-icon svgIcon="statusClose" *ngIf="issue.state=='close'"></mat-icon>
+                </td>
+                </ng-container>
+        
+                <!-- Title Column -->
+                <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let issue" class="issue-title"
+                    (click)="openDialog(issue.body)">
+                    {{issue.title}}</td>
+                </ng-container>
+
+                <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns;" class="table-header"></tr> -->
+                <tr mat-row *matRowDef="let issue; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator  [length] ="resultsLength"
+                            [pageSize] = "5"
+                            (page)="OnPageChange($event)">
+            </mat-paginator>
+        </div>
     </div>
-  </div>
+</div>
 
 
 

@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 import { MatPaginatorModule } from '@angular/material/paginator'; 
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
 
 const modules = [
     CommonModule,
@@ -22,7 +25,10 @@ const modules = [
     BrowserAnimationsModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatBottomSheetModule
 ]
 @NgModule({
     imports: [

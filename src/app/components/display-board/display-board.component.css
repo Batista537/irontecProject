@@ -1,52 +1,73 @@
 .form-field {
-    width: 12%;
+    width: 30%;
     padding: 2% 2%;
+    color: cornflowerblue;
+}
+mat-icon, .mat-icon{
+  cursor: pointer;
+}
+.body{
+  overscroll-behavior:contain;
 }
 
+.issues-status {
+  position: relative;
+  display: inline-flex;
+  padding-top: 1em;
+  width: 100%;
+  height: 50px;
+  background-color: #F6F8FA;
+}
+.icon-status-open{
+  color: green;
+}
+.issues-status-open, .issues-status-close{
+  padding: 1% 0% 0% 24px;
+  display: inline-flex;
+}
+.display-table-container{
+   width: 80%;
+   margin: 0% 0% 10% 8%;
+   border-radius: 10px 10px 10px 10px;
 
-/* Structure */
-.example-container {
+}
+
+.no-result{
+  text-align: center;
+  padding: 80px 0% 0px 15px;
+}
+
+.container {
     position: relative;
-    min-height: 200px;
-  }
-  
-  .example-table-container {
-    position: relative;
-    max-height: 400px;
-    overflow: auto;
+    min-height: 300px;
+    width: 100%;
   }
   
   table {
     width: 100%;
   }
-  
-  .example-loading-shade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 56px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.15);
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .issue-title{
+    cursor: pointer;
   }
   
-  .example-rate-limit-reached {
-    color: #980000;
-    max-width: 360px;
-    text-align: center;
+  mat-cell, .mat-cell {
+    /* display:block; flex prevents padding from working */
+    min-height:auto; /* overrides the 'inherit' that set the min height of the row */
+    padding: 1% 0% 1% 1%;
   }
-  
-  /* Column Widths */
-  .mat-column-number,
-  .mat-column-state {
-    max-width: 64px;
+
+  /* here the rules for small windows */
+@media (max-width: 900px) { 
+  .display-table-container{
+    width: 80%;
   }
-  
-  .mat-column-created {
-    max-width: 124px;
+  .container .table{
+    width: auto;
   }
-  
-  
+  .form-field {
+    width: 90%;
+    /* padding: 2% 2%; */
+}
+}
+
+ 
