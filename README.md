@@ -1,4 +1,5 @@
 
+### !! This proyect contains responsive design ¡¡
 # Steps to Install the project
 
 ## Required Software
@@ -31,7 +32,6 @@
     2. Use the http-server package installed before with npm:
         - http-server /dists/irontec-angular-project 8080
             - Connect to localhost:8080
-### This proyect contains responsive design
 
 ### Using irontec-angular-project like a Progresive Web App
 - In this step you must to configure your development server to serve the content through HTTPS, otherwise you must to install manually the application.
