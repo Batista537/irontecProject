@@ -1,5 +1,5 @@
 
-### This proyect contains responsive design !!
+### --- > This proyect contains responsive design < ---
 # Steps to Install the project
 
 ## Required Software
